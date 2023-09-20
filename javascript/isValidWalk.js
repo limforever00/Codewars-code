@@ -4,9 +4,45 @@
 
 // Note: you will always receive a valid array containing a random assortment of direction letters
 //  ('n', 's', 'e', or 'w' only). It will never give you an empty array (that's not a walk, that's standing still!).
+// n s e w 중 임의로 10개가 들어있는 배열 
+// return true or false
 
-function isValidWalk(walk) {
+function isValidWalk(arr) {
+    if(arr.length != 10){
+      return false;
+    }
+    
+    // east&west south&north 각각 하나씩 변수사용해서 +- 해주면 변수 개수 줄일수있음
+    // let cntE = 0
+    // let cntW = 0
+    // let cntS = 0
+    // let cntN = 0
 
+    let cntEW = 0
+    let cntSN = 0
+  
+    for(var i=0; i<arr.length; i++){
+        if(arr[i] == 'e'){
+            // cntE++
+            cntEW++
+        }else if(arr[i] == 'w'){
+            // cntW++
+            cntEW--
+        }else if(arr[i] == 's'){
+            // cntS++
+            cntSN++
+        }else{
+            // cntN++
+            cntSN--
+        }
+    }
+ 
+    // 위처럼 변수를 바꾸면 
+    // if( cntE != cntW || cntS != cntN) {
+    if( cntEW != 0 || cntSN != 0) {            
+        return false;
+    }
+    
+    return true;
 }
 
-walk = ''
