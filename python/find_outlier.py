@@ -39,7 +39,7 @@ def find_outlier(integers):
             cntOdd+=1
 
     if(cntOdd > cntEven):
-        resStr = 'odd'
+        resStr = 'odd' 
     else:
         pass
 
