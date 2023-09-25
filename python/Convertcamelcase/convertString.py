@@ -4,19 +4,19 @@
 
 def to_camel_case(text):
 
-    list2 = []
+    valList = []
     res = ''
 
     for val in list(text):
-        if (ord(val) >= 65 and ord(val) <= 90) or (ord(val) >=97 and ord(val) <=123):
-            list2.append(val)
+        if ('A' <= val <= 'Z') or ('a' <= val <= 'z'):
+            valList.append(val)
         else :
-            list2.append('up')
+            valList.append('up')
     
-
-    for idx,li in enumerate(list2):
-        if(li == 'up'):
-            list2[idx+1] = list2[idx+1].upper()
+    for idx,li in enumerate(valList):
+        if li == 'up':
+            if idx + 1 < len(valList):  # 다음 글자가 있는지 확인
+                valList[idx+1] = valList[idx+1].upper()
         else:
             res += li
 
